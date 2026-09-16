@@ -5,7 +5,7 @@ A small, open Agent Skill for **scientific prose rather than scientific judgment
 It focuses on the problems that generic LLM rewriting often handles poorly:
 
 - precise word choice;
--- stable technical terminology;
+- stable technical terminology;
 - contribution and evidence verbs;
 - claim-strength preservation;
 - sentence information flow;
