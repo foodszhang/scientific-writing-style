@@ -1,0 +1,82 @@
+[
+  {
+    "id": "minimal-revision",
+    "prompt": "Polish this Methods sentence: 'The measurements were acquired from seven views and then normalized per case.'",
+    "expected_output": "Preserve the technically acceptable passive construction and make no gratuitous rewrite.",
+    "assertions": [
+      "Does not force active voice merely as a style preference",
+      "Does not change seven views or per-case normalization",
+      "Does not invent rationale or implementation detail"
+    ]
+  },
+  {
+    "id": "contribution-verb",
+    "prompt": "Improve: 'We introduce a network and validate it by reporting Dice on one test set.'",
+    "expected_output": "Use verbs that match the actual acts; likely develop/propose plus evaluate rather than validate unless a validity criterion exists.",
+    "assertions": [
+      "Does not treat introduce as a generic prestige verb",
+      "Distinguishes evaluate from validate",
+      "Preserves the limited test-set scope"
+    ]
+  },
+  {
+    "id": "claim-strength",
+    "prompt": "Polish: 'The ablation suggests that the constraint helps performance.'",
+    "expected_output": "Do not upgrade suggests to demonstrates or establishes without stronger evidence.",
+    "assertions": [
+      "Preserves epistemic strength",
+      "Does not add statistical significance"
+    ]
+  },
+  {
+    "id": "terminology-stability",
+    "prompt": "Revise a paragraph that alternates framework, architecture, scheme, and method for the same algorithm.",
+    "expected_output": "Choose one canonical term and keep it stable unless the terms denote genuinely different levels.",
+    "assertions": [
+      "Avoids synonym rotation",
+      "Does not alter technical hierarchy without evidence"
+    ]
+  },
+  {
+    "id": "results-specificity",
+    "prompt": "Improve: 'Our method achieves significantly superior and robust performance.' The only evidence is Dice 0.72 vs 0.69 on one test set.",
+    "expected_output": "Replace promotional language with the measured comparison and avoid robustness/significance claims not supported by the evidence.",
+    "assertions": [
+      "Reports the numerical comparison",
+      "Removes or qualifies significant",
+      "Removes robustness unless a perturbation test exists"
+    ]
+  },
+  {
+    "id": "abstract-framework",
+    "prompt": "Draft a 180-word engineering abstract from supplied problem, method, and quantitative results.",
+    "expected_output": "Use a compact problem-gap-response-method-results-meaning structure, prioritizing quantitative results over generic praise.",
+    "assertions": [
+      "Contains the concrete problem",
+      "States what the study does",
+      "Includes key quantitative results",
+      "Avoids generic field-growth opening",
+      "Avoids unsupported novelty labels"
+    ]
+  },
+  {
+    "id": "compression-preserves-scope",
+    "prompt": "Shorten this Results paragraph by 25% without changing meaning.",
+    "expected_output": "Remove redundancy and meta-writing before removing conditions, numbers, qualifiers, or limitations.",
+    "assertions": [
+      "Preserves quantitative values",
+      "Preserves scope restrictions",
+      "Removes duplicate prose before scientific qualifiers"
+    ]
+  },
+  {
+    "id": "ieee-overlay",
+    "prompt": "Edit this paragraph for an IEEE Transactions manuscript; it uses British spelling and introduces an acronym only in the abstract.",
+    "expected_output": "Apply American spelling and ensure acronym treatment follows the IEEE overlay without altering content.",
+    "assertions": [
+      "Uses American spelling",
+      "Flags or fixes first-use acronym definition in the body",
+      "Does not change scientific claims"
+    ]
+  }
+]
