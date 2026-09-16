@@ -1,0 +1,13 @@
+{
+  "canonical_terms": {
+    "method": ["framework", "scheme", "approach"],
+    "Stage-1": ["Stage 1", "stage-1", "stage 1"],
+    "in vivo": ["in-vivo"]
+  },
+  "protected_terms": [
+    "NIR-II",
+    "Dice",
+    "ASSD",
+    "HD95"
+  ]
+}
