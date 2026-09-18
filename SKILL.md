@@ -1,163 +1,228 @@
 ---
 name: scientific-writing-style
-description: Audit, plan, draft, and revise English scientific manuscripts with section-aware structure, evidence traceability, reproducibility checks, domain-paper patterning, precise word choice, stable terminology, restrained claim strength, and an optional IEEE overlay. Use for full-manuscript review, section restructuring, abstracts, introductions, methods, experiments, results, discussions, conclusions, captions, reviewer responses, and wording-focused revision. Preserve equations, numbers, citations, method names, and scientific meaning unless the user explicitly asks to change them.
+description: Read and distill scientific literature into reusable domain knowledge, audit and plan manuscripts, draft sections from scratch, and revise scientific prose with section-aware structure, evidence traceability, reproducibility checks, domain-paper patterning, precise terminology, restrained claim strength, and an optional IEEE overlay. Use for literature reading, paper cards, terminology/equation/claim accumulation, full-manuscript review, section planning, from-scratch drafting, abstracts, introductions, methods, experiments, results, discussions, conclusions, captions, reviewer responses, and wording-focused revision. Preserve verified equations, numbers, citations, method names, and scientific meaning unless the user explicitly asks to change them.
 license: MIT
 metadata:
-  version: "0.2.0"
-  scope: "scientific manuscript audit, structure, and prose"
+  version: "0.3.0"
+  scope: "read-to-write scientific manuscript workflow"
 ---
 
 # Scientific Writing Style
 
-This skill supports three levels of work:
+This skill is a **read-to-write scientific manuscript workflow**, not only a prose polisher.
 
-1. **Wording mode** — local sentence/paragraph polishing without changing scientific structure.
-2. **Section mode** — restructure and rewrite one manuscript section so that it performs its scientific/rhetorical job.
-3. **Manuscript mode** — audit the complete problem → contribution → method → experiment → result → discussion → conclusion chain before polishing.
+It supports five modes:
 
-The central rule is:
+1. **Literature mode** — read papers and convert them into reusable, source-traceable knowledge.
+2. **Project-planning mode** — freeze the manuscript story, contribution hierarchy, terminology, evidence boundaries, and section blueprints.
+3. **From-scratch drafting mode** — write a section from a stable blueprint rather than generating a new framing every turn.
+4. **Audit/revision mode** — review and repair a complete section or manuscript before polishing.
+5. **Wording mode** — perform local sentence/paragraph edits with minimal scientific change.
 
-> Do not make a manuscript merely sound more scientific. Make sure each section performs the job required for the scientific argument, then improve the prose.
+The central rules are:
+
+> Do not make a manuscript merely sound more scientific. Make sure each section performs the job required for the scientific argument.
+
+> Do not rely on fresh generation when durable project knowledge already exists. Load the project profile, domain pack, paper cards, equation registry, and claim ledger first.
 
 ## Use When
 
+- Reading, studying, summarizing, or comparing scientific papers for future writing.
+- Building a persistent field lexicon, equation/model registry, claim/evidence ledger, or paper-card library.
+- Planning a manuscript from the beginning.
+- Drafting an Abstract, Introduction, Methods, Experimental Setup, Results, Discussion, or Conclusion from scratch.
 - Reviewing or revising a full scientific manuscript.
-- Drafting or restructuring an Abstract, Introduction, Methods, Experimental Setup, Results, Discussion, or Conclusion.
 - Auditing whether contributions are actually supported by methods and experiments.
-- Checking whether experiments are reproducible and comparisons are fair.
+- Checking reproducibility, comparator fairness, metric definitions, and evidence traceability.
 - Comparing section structure with published papers in the same field.
 - Improving word choice, sentence flow, terminology, captions, or reviewer responses.
-- Compressing a manuscript without deleting the information needed to understand or reproduce the work.
+- Compressing a manuscript without deleting information needed to understand or reproduce the work.
 - Applying IEEE-specific language and formatting conventions.
 
+## Source-of-Truth Hierarchy
+
+When sources disagree, use this precedence unless the user explicitly changes it:
+
+1. verified project-specific facts/data;
+2. accepted project profile and decision ledger;
+3. directly read source papers/files;
+4. domain pack synthesized from multiple papers;
+5. venue instructions and generic scientific-writing guidance;
+6. generic model knowledge.
+
+Never silently replace a project fact with a field convention.
+
 ## Mode Selection
+
+### Literature mode
+
+Use when the user asks to read or learn from papers.
+
+Read `references/literature-reading-and-knowledge.md`.
+
+For each relevant paper, extract:
+
+- task/problem;
+- method structure;
+- data/evaluation setting;
+- canonical terminology and short accepted expressions;
+- important equations/models and assumptions;
+- main findings and quantitative support;
+- author-stated limitations;
+- what the paper can safely support later;
+- section/rhetorical structure.
+
+Persist durable knowledge when the user wants accumulation:
+
+- paper card;
+- domain lexicon;
+- equation registry;
+- claim/evidence ledger;
+- domain pack.
+
+Do not build a copied phrase bank. Store terminology, short technical collocations, mathematical relations, paraphrased rhetorical patterns, and structured conclusions.
+
+### Project-planning mode
+
+Use before writing a new manuscript or after a major conceptual revision.
+
+Create or update:
+
+- project profile;
+- contribution–evidence matrix;
+- terminology lock;
+- section-role/size plan;
+- section blueprints;
+- decision ledger.
+
+Read:
+
+- `knowledge/templates/project-profile.md`
+- `knowledge/templates/section-blueprint.md`
+- `references/section-role-and-budget.md`
+
+Once accepted, do not silently change the central gap, contribution order, method names, or terminology later.
+
+### From-scratch drafting mode
+
+Use when the user asks to write a section from the beginning.
+
+Read `references/from-scratch-drafting.md`.
+
+Before prose, load:
+
+- project profile;
+- relevant domain pack;
+- relevant paper cards;
+- equation registry;
+- claim ledger;
+- verified results;
+- section blueprint.
+
+Draft in two passes:
+
+1. **scientific skeleton** — correct logic, evidence, citations, terminology;
+2. **publication prose** — field-standard wording, sentence flow, compression, venue style.
+
+Do not invent missing experimental facts merely to complete a polished draft.
+
+### Audit/revision mode
+
+Use for full-paper revision, reviewer-style assessment, or substantial section repair.
+
+Run `references/manuscript-audit.md` before line editing.
+
+Check:
+
+- problem → gap → aim → contributions;
+- contribution → method → experiment → result → discussion → conclusion;
+- section role and size balance;
+- reproducibility;
+- comparator fairness;
+- evidence traceability;
+- terminology ontology;
+- Discussion depth and evidence boundaries.
+
+If the section structure is wrong, rewrite from the blueprint instead of patching it sentence by sentence.
 
 ### Wording mode
 
 Use when the user asks only for local wording, grammar, compression, terminology, or tone.
 
 Do:
-- freeze the scientific structure and evidence;
+- freeze scientific structure/evidence;
 - make the smallest revision that solves the wording problem;
 - preserve claim strength.
 
 Do not:
-- expand into a manuscript review unless a scientific ambiguity blocks the edit.
+- trigger a full manuscript audit unless a scientific ambiguity blocks the edit.
 
-### Section mode
+## Literature-to-Writing Workflow
 
-Use when the user asks to rewrite or improve a complete section.
+For long projects, use this durable sequence:
 
-Before drafting:
-1. identify the section's actual job;
-2. compare the current text against `references/section-role-and-budget.md`;
-3. identify missing moves and misplaced material;
-4. when useful and sources are available, use `references/domain-paper-patterning.md` to inspect 2–3 relevant published papers;
-5. then rewrite.
+```text
+read paper(s)
+   ↓
+paper cards
+   ↓
+domain lexicon + accepted expressions
+   ↓
+equation registry
+   ↓
+claim/evidence ledger
+   ↓
+cross-paper domain pack
+   ↓
+project profile
+   ↓
+section blueprint
+   ↓
+draft from scratch
+   ↓
+audit against evidence + project decisions
+   ↓
+wording/venue pass
+```
 
-### Manuscript mode
-
-Use for full-paper revision, reviewer-style assessment, or requests such as "what is wrong with this paper?"
-
-Run `references/manuscript-audit.md` before sentence-level polishing.
-
-Do not begin with line editing if blocking structural, evidence, or reproducibility problems are present.
+This workflow is designed to reduce repeated rewriting and terminology drift.
 
 ## Manuscript Workflow
 
 1. **Identify target and venue.**
-   - target journal/conference;
-   - manuscript type;
-   - current page/word constraints;
-   - requested level of intervention.
-
-2. **Freeze scientific invariants.**
-   - equations;
-   - quantitative values;
-   - units;
-   - citations;
-   - variable names;
-   - dataset/method names;
-   - explicit claims.
-   
-   Change them only when the user asks for scientific revision or when a verified inconsistency must be surfaced.
-
-3. **Build the story map.**
-   Summarize:
-   - problem;
-   - technical difficulty;
-   - gap;
-   - study response;
-   - contributions;
-   - evidence;
-   - interpretation;
-   - evidence boundary.
-
-4. **Run the contribution–evidence audit.**
-   Every contribution should map to:
-   `Introduction → Methods → direct experiment → Results → Discussion → Conclusion`.
-
-5. **Run the section-role and size audit.**
-   Read `references/section-role-and-budget.md`.
-   Report:
-   - intended role;
-   - role actually performed;
-   - missing moves;
-   - redundant/misplaced material;
-   - size balance.
-
-6. **Run reproducibility and evidence traceability checks.**
-   Read `references/manuscript-audit.md`.
-   Verify:
-   - data/acquisition/simulation protocol;
-   - train/validation/test separation;
-   - reference/ground-truth construction;
-   - comparator fairness;
-   - metrics/statistics;
-   - every important prose number is traceable to reported evidence;
-   - descriptive and inferential claims are not mixed.
-
-7. **Pattern against published papers when appropriate.**
-   Read `references/domain-paper-patterning.md`.
-   Extract rhetorical structure and field terminology, not copyrighted wording.
-
-8. **Repair scientific structure before prose.**
-   Move, add, merge, or delete material only to make section function and evidence flow correct.
-
-9. **Assign communicative functions.**
-   For each paragraph/sentence: background, gap, purpose, method, observation, comparison, interpretation, limitation, implication, or transition.
-
-10. **Apply rhetorical frameworks.**
-    Read `references/rhetorical-frameworks.md`.
-
-11. **Apply wording rules.**
-    Read `references/word-choice.md` and `references/sentence-paragraph.md`.
-
-12. **Apply the venue overlay.**
-    For IEEE venues, read `references/ieee-overlay.md`.
-
-13. **Run the anti-pattern pass.**
-    Read `references/anti-patterns.md`.
-
-14. **Run final alignment.**
-    Confirm:
-    - same problem/gap vocabulary across Abstract and Introduction;
-    - same contribution hierarchy across Introduction, Methods, Discussion, and Conclusion;
-    - results do not claim more than the experiments test;
-    - Discussion interprets rather than repeats Results;
-    - Conclusion stays within the evidence;
-    - terminology is stable throughout.
+2. **Load or create the project profile.**
+3. **Freeze verified scientific invariants.**
+4. **Build the story map.**
+5. **Run the contribution–evidence audit.**
+6. **Run the section-role and size audit.**
+7. **Run reproducibility and evidence-traceability checks.**
+8. **Pattern against relevant published papers when appropriate.**
+9. **Repair scientific structure.**
+10. **Create/update section blueprints.**
+11. **Draft or revise.**
+12. **Apply wording/claim-strength rules.**
+13. **Apply venue overlay.**
+14. **Run final alignment and terminology checks.**
+15. **Record any accepted conceptual/terminology change in the decision ledger.**
 
 ## Structural Gates
+
+### Gate 0 — Knowledge base
+
+For a literature-grounded drafting task, pass only if:
+- required source papers have been read or their absence is explicit;
+- project facts are separated from field conventions;
+- important equations/claims are traceable to sources;
+- canonical terminology is defined.
 
 ### Gate 1 — Introduction
 
 Pass only if:
-- the opening establishes the research problem and why it matters;
-- the technical difficulty is explicit;
+- the opening establishes the research problem and significance;
+- technical difficulty is explicit;
 - prior work is grouped for a reason;
 - the gap is one the proposed method actually addresses;
-- the aim responds directly to that gap;
+- the aim responds directly to the gap;
 - contributions are parallel and testable.
 
 ### Gate 2 — Methods
@@ -176,13 +241,13 @@ Pass only if a domain reader can reconstruct:
 - how training/validation/test data were separated;
 - what each comparator received;
 - how references/ground truth were produced;
-- how metrics and statistical comparisons were computed.
+- how metrics/statistics were computed.
 
 ### Gate 4 — Results
 
 Pass only if:
 - every major numerical claim is traceable;
-- main comparisons identify the comparator and metric;
+- main comparisons identify comparator and metric;
 - subgroup results are related to overall results;
 - representative examples are not treated as population-level proof;
 - observation is distinguishable from interpretation.
@@ -196,7 +261,7 @@ Pass only if major findings are discussed through:
 - relation to prior work;
 - evidence boundary/implication.
 
-A Discussion that only repeats numerical results and restates method components does not pass.
+A Discussion that only repeats Results or re-describes modules does not pass.
 
 ### Gate 6 — Conclusion
 
@@ -206,31 +271,93 @@ Pass only if it contains:
 - strongest supported evidence;
 - scoped implication.
 
-Do not use the Conclusion to introduce new results, new limitations, or stronger claims.
-
 ## Section Size Discipline
 
-Use `references/section-role-and-budget.md` as a diagnostic, not a rule.
+Use `references/section-role-and-budget.md` diagnostically, not as a rigid quota.
 
 When a section is too long:
-1. remove duplicated explanation;
-2. move material to the section whose job it actually serves;
+1. remove duplicate explanation;
+2. move content to the section whose job it actually serves;
 3. remove low-value implementation detail;
 4. compress wording;
-5. only then consider deleting scientific qualifiers or reproducibility details.
+5. only then consider deleting qualifiers/reproducibility details.
 
 When a section is too short:
 - add missing scientific function, not filler.
 
 ## Domain-Paper Patterning
 
-When the user asks for field-appropriate writing, or when the manuscript sounds structurally unlike published work:
+Read `references/domain-paper-patterning.md`.
+
+When field-appropriate writing matters:
 
 1. inspect 2–3 high-relevance papers;
-2. record section order, paragraph functions, terminology, and evidence presentation;
+2. record section order, paragraph functions, terminology, equation placement, and evidence presentation;
 3. compare those functions with the current section;
 4. adapt the structure, not the sentences;
 5. never invent details to imitate the references.
+
+## Persistent Knowledge Rules
+
+### Paper cards
+Use `knowledge/templates/paper-card.md`.
+
+### Domain lexicon
+Use `knowledge/templates/domain-lexicon.md`.
+
+Track:
+- canonical term;
+- meaning;
+- context;
+- independent sources;
+- accepted alternatives;
+- terms to avoid.
+
+### Equation registry
+Use `knowledge/templates/equation-registry.md`.
+
+Track:
+- mathematical form;
+- assumptions;
+- symbols;
+- source;
+- project usage;
+- conclusion enabled;
+- limitations.
+
+### Claim/evidence ledger
+Use `knowledge/templates/claim-ledger.md`.
+
+Track:
+- claim;
+- evidence type;
+- population/condition;
+- quantitative/statistical support;
+- safe later wording;
+- overclaim to avoid.
+
+### Domain pack
+Use `knowledge/templates/domain-pack.md`.
+
+A domain pack synthesizes multiple public papers and should not contain unpublished project facts.
+
+### Project profile
+Use `knowledge/templates/project-profile.md`.
+
+Treat it as the source of truth for manuscript-specific decisions.
+
+## Consistency Lock
+
+When a project profile exists:
+
+- do not switch terminology for stylistic variety;
+- do not reorder contributions between Abstract, Introduction, Discussion, and Conclusion;
+- do not change the scientific gap from one writing session to another;
+- do not change method/module names without recording the decision;
+- do not upgrade `suggests` to `demonstrates` unless evidence changes;
+- do not introduce a new citation-dependent claim without source support.
+
+If a better formulation emerges, state the proposed change explicitly and update the decision ledger only after acceptance.
 
 ## Rules
 
@@ -243,7 +370,7 @@ When the user asks for field-appropriate writing, or when the manuscript sounds 
 
 ### B. Word choice
 
-- Prefer the shortest word that preserves the intended scientific meaning.
+- Prefer the shortest word that preserves intended scientific meaning.
 - Prefer specific verbs over vague verb-noun shells.
 - Use one canonical term for one concept.
 - Avoid prestige words unless operationalized by evidence.
@@ -272,32 +399,25 @@ Use strength deliberately:
 
 `is consistent with` / `suggests` → `indicates` → `shows` → `demonstrates` → `establishes`
 
-Do not vary these verbs merely for style.
+Do not vary these merely for style.
 
-### E. Sentence design
+### E. Sentence and paragraph design
 
 - Give each sentence one main proposition.
-- Keep the grammatical subject and main verb easy to locate.
-- Place conditions and scope restrictions next to the claims they qualify.
-- Use active/passive voice according to information structure, not dogma.
-- Avoid ambiguous bare demonstratives and unclear noun stacks.
-
-### F. Paragraph design
-
+- Keep subject and main verb easy to locate.
+- Place scope restrictions next to the claims they qualify.
 - Give each paragraph one dominant communicative job.
-- Put the route early.
 - Keep evidence adjacent to the claim it supports.
-- Use explicit transitions only when they encode a real logical relation.
-- Do not force a summary sentence at every paragraph end.
+- Use transitions only when they encode a real relation.
 
-### G. Scientific tone
+### F. Scientific tone
 
-- Prefer restrained, evidence-bearing prose over persuasion.
-- Do not tell the reader something is obvious, remarkable, or important when the evidence/consequence can be stated.
-- Avoid generic scene-setting and canned gap language.
+- Prefer restrained, evidence-bearing prose.
+- Avoid unsupported praise and generic scene-setting.
 - Avoid ornamental synonym rotation.
+- Distinguish direct results, author interpretation, and editorial inference.
 
-### H. Minimal revision
+### G. Minimal revision
 
 In wording mode:
 1. fix technical ambiguity;
@@ -306,44 +426,64 @@ In wording mode:
 4. remove unnecessary words;
 5. stop.
 
-In section/manuscript mode, structural repair takes precedence over minimal-diff editing.
+In planning, drafting, or audit modes, structural correctness takes precedence over minimal-diff editing.
 
-## Output Format for Full-Manuscript Review
+## Output Formats
 
-Unless the user requests another format, return:
+### Literature mode
+Return, as appropriate:
+1. paper card;
+2. terminology additions;
+3. equation/model additions;
+4. claim/evidence additions;
+5. rhetorical pattern notes;
+6. domain-pack updates;
+7. unresolved questions.
 
-1. **Story map**
-2. **Blocking findings**
-3. **Section-role and size audit**
-4. **Contribution–evidence matrix**
-5. **Reproducibility/evidence-traceability findings**
-6. **Terminology findings**
-7. **Revision order**
-8. revised text only after the audit priorities are clear
+### Full-manuscript audit
+Return:
+1. story map;
+2. blocking findings;
+3. section-role and size audit;
+4. contribution–evidence matrix;
+5. reproducibility/evidence-traceability findings;
+6. terminology findings;
+7. revision order.
+
+### From-scratch section drafting
+Return:
+1. section blueprint;
+2. any missing evidence/source warnings;
+3. draft;
+4. consistency check against project profile.
 
 ## Edge Cases
 
 - **User requests wording only:** stay in wording mode.
-- **User requests aggressive rewriting:** structural changes are allowed, but preserve scientific facts.
-- **Ambiguous claim strength:** choose the weaker defensible wording and surface the ambiguity.
+- **User asks to read only one supplied paper:** do not generalize one paper's terminology into a field-wide convention without qualification.
+- **Reference paper unavailable:** do not invent its wording, equation, protocol, or conclusion.
+- **Ambiguous claim strength:** choose the weaker defensible wording.
 - **Journal conflict:** current venue instructions take precedence.
 - **Field-specific terminology:** established field usage overrides generic prose preferences.
 - **Space-limited venues:** compress redundancy before deleting reproducibility, scope, or evidence boundaries.
 - **LaTeX input:** preserve commands, labels, citations, math, and protected capitalization unless explicitly asked to edit them.
-- **Reference paper unavailable:** do not invent its wording or protocol; say what could not be verified.
+- **Public knowledge repository:** do not store unpublished project facts unless the user explicitly wants them public.
 
 ## References
 
 Read as needed:
 
-- `references/manuscript-audit.md` — full scientific/evidence/reproducibility audit.
-- `references/section-role-and-budget.md` — section roles, expected content, and diagnostic size ranges.
-- `references/domain-paper-patterning.md` — how to learn structure from published papers without copying prose.
+- `references/literature-reading-and-knowledge.md` — paper reading and durable knowledge extraction.
+- `references/from-scratch-drafting.md` — stable blueprint-first drafting.
+- `references/manuscript-audit.md` — scientific/evidence/reproducibility audit.
+- `references/section-role-and-budget.md` — section roles and diagnostic size ranges.
+- `references/domain-paper-patterning.md` — learn field structure without copying prose.
 - `references/rhetorical-frameworks.md` — section-level rhetorical frameworks.
 - `references/word-choice.md` — lexical precision and claim-strength verbs.
 - `references/sentence-paragraph.md` — sentence and paragraph architecture.
 - `references/anti-patterns.md` — inflated, vague, and AI-like prose patterns.
 - `references/ieee-overlay.md` — IEEE house-style layer.
+- `knowledge/README.md` — persistent knowledge architecture.
 - `references/source-notes.md` — provenance and design notes.
 
 Optional checker:
@@ -352,4 +492,4 @@ Optional checker:
 python scripts/style_lint.py path/to/manuscript.tex --ieee
 ```
 
-The checker is advisory. Structural and scientific audits require reasoning and cannot be reduced to regex warnings.
+The checker is advisory. Literature synthesis, structural audit, and scientific consistency require reasoning and cannot be reduced to regex warnings.
