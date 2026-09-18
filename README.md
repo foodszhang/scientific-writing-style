@@ -1,33 +1,70 @@
 # scientific-writing-style
 
-An open Agent Skill for **scientific manuscript structure, evidence, and prose**.
+An open Agent Skill for **read-to-write scientific manuscript work**.
 
-Version 0.2 expands the original writing-layer skill into a manuscript workflow that first checks whether the paper's scientific argument is structurally sound, then improves the writing.
+Version 0.3 expands the project from a prose/style helper into a durable workflow that starts at literature reading, accumulates field knowledge, plans the manuscript, drafts from a frozen blueprint, audits the evidence chain, and only then performs wording/style revision.
 
-It focuses on problems generic LLM rewriting often misses:
+## What it now does
 
-- problem → gap → contribution → method → experiment → result → discussion alignment;
-- section roles and section-size balance;
-- reproducibility of simulated, experimental, and in vivo protocols;
-- evidence traceability from prose claims to tables/figures/analyses;
-- domain-paper patterning from relevant published literature;
+### 1. Literature reading
+Turns papers into reusable, source-traceable knowledge:
+
+- paper cards;
+- field terminology and short accepted expressions;
+- equation/model registry;
+- claim/evidence ledger;
+- section/rhetorical pattern notes;
+- cross-paper domain packs.
+
+### 2. Project planning
+Builds a stable source of truth for one manuscript:
+
+- problem;
+- technical difficulty;
+- exact gap;
+- contribution hierarchy;
+- method/module names;
+- terminology lock;
+- verified results;
+- evidence boundaries;
+- reviewer/author decisions;
+- section size plan;
+- section blueprints.
+
+### 3. From-scratch drafting
+Writes from the project profile + domain pack + paper cards rather than inventing a new framing each turn.
+
+### 4. Manuscript audit
+Checks:
+
+- problem → gap → contribution → method → experiment → result → discussion → conclusion;
+- contribution–evidence alignment;
+- section role and size balance;
+- reproducibility;
+- comparator fairness;
+- metric/statistical definitions;
+- prose-number traceability;
+- Discussion depth;
+- claim strength.
+
+### 5. Wording/style
+Retains the original strengths:
+
 - precise word choice;
-- stable technical terminology;
-- contribution and evidence verbs;
+- stable terminology;
+- contribution/evidence verbs;
+- sentence and paragraph flow;
 - claim-strength preservation;
-- sentence and paragraph information flow;
-- optional IEEE house style.
+- optional IEEE overlay.
 
-The goal is not to make prose sound more sophisticated. The goal is to make a manuscript **scientifically legible, evidence-traceable, reproducible, field-appropriate, and precise**.
-
-## What is included
+## Knowledge architecture
 
 ```text
 scientific-writing-style/
 ├── SKILL.md
-├── README.md
-├── LICENSE
 ├── references/
+│   ├── literature-reading-and-knowledge.md
+│   ├── from-scratch-drafting.md
 │   ├── manuscript-audit.md
 │   ├── section-role-and-budget.md
 │   ├── domain-paper-patterning.md
@@ -37,6 +74,16 @@ scientific-writing-style/
 │   ├── anti-patterns.md
 │   ├── ieee-overlay.md
 │   └── source-notes.md
+├── knowledge/
+│   ├── README.md
+│   └── templates/
+│       ├── paper-card.md
+│       ├── domain-lexicon.md
+│       ├── equation-registry.md
+│       ├── claim-ledger.md
+│       ├── domain-pack.md
+│       ├── project-profile.md
+│       └── section-blueprint.md
 ├── scripts/
 │   └── style_lint.py
 ├── assets/
@@ -45,179 +92,104 @@ scientific-writing-style/
     └── evals.json
 ```
 
-## Three working modes
-
-### 1. Wording mode
-
-Use for local sentence/paragraph editing.
-
-The skill:
-- freezes technical content;
-- preserves claim strength;
-- repairs terminology, grammar, information flow, and concision;
-- prefers minimal-diff revision.
-
-### 2. Section mode
-
-Use for a complete Introduction, Methods subsection, Experimental Setup, Results, Discussion, or Conclusion.
-
-The skill first checks:
-- what the section is supposed to do;
-- whether the current section actually does it;
-- whether material is missing or belongs elsewhere;
-- whether the section is over- or under-developed.
-
-When useful, it then patterns the section against 2–3 relevant published papers by extracting their rhetorical structure and field terminology without copying prose.
-
-### 3. Manuscript mode
-
-Use for full-paper revision.
-
-The default workflow is:
+## Recommended long-project workflow
 
 ```text
-story map
-    ↓
-contribution–evidence matrix
-    ↓
-section-role + size audit
-    ↓
-reproducibility + evidence traceability
-    ↓
-domain-paper patterning
-    ↓
-structural repair
-    ↓
-section rewriting
-    ↓
-wording/style pass
-    ↓
-final alignment gate
+read papers
+   ↓
+paper cards
+   ↓
+domain terminology / equations / conclusions
+   ↓
+cross-paper domain pack
+   ↓
+project profile
+   ↓
+section role + size plan
+   ↓
+section blueprint
+   ↓
+draft from scratch
+   ↓
+evidence/reproducibility audit
+   ↓
+wording + venue pass
+   ↓
+decision ledger update
 ```
 
-This order matters. A polished Discussion that only repeats Results is still a weak Discussion; a polished in vivo paragraph that omits how the reference mask was constructed is still unreproducible.
+This order is meant to reduce oscillation between drafts. Once a project profile is accepted, the skill should not silently rename the problem, change the contribution order, switch terminology, or strengthen claims in a later session.
 
 ## Section-size diagnostics
 
 `references/section-role-and-budget.md` includes both relative manuscript proportions and a TMI-like 9–10 page planning profile.
 
-The ranges are **diagnostic, not prescriptive**. They are used to ask:
-- Is Methods long because the method truly needs explanation, or because implementation detail is displacing Results/Discussion?
-- Is Discussion short because the evidence is simple, or because interpretation and prior-work comparison are missing?
-- Is Conclusion concise, or simply incomplete?
-
-## Contribution–evidence alignment
-
-Every claimed contribution should be traceable across:
-
-```text
-Introduction
-   ↓
-Methods
-   ↓
-direct experiment / ablation
-   ↓
-Results
-   ↓
-Discussion
-   ↓
-Conclusion
-```
-
-If a claimed contribution disappears from any stage, the skill flags the gap before polishing prose.
+The ranges are **diagnostic, not prescriptive**. The skill asks whether a section performs its real scientific job, not merely whether it is the right length.
 
 ## Domain-paper patterning
 
-The skill does not maintain a phrase bank.
+The skill does not build a copied phrase bank.
 
-Instead, for field-appropriate drafting it extracts from relevant papers:
+Instead, it extracts from relevant papers:
+
 - section order;
 - paragraph functions;
-- opening/transition logic;
-- terminology;
+- technical terminology;
+- equation placement;
 - evidence presentation;
-- Discussion structure.
+- Discussion structure;
+- limitations;
+- safe claim scope.
 
-It then adapts the rhetorical skeleton, not the copyrighted sentences.
+The resulting knowledge is stored as structured notes, not copied prose.
 
-## Reproducibility and evidence checks
+## Persistent project consistency
 
-The manuscript audit covers:
-- simulated-data generation;
-- in vivo/experimental acquisition;
-- train/validation/test separation;
-- comparator fairness;
-- reference-mask / ground-truth construction;
-- metric definitions and matching rules;
-- confidence intervals and statistical tests;
-- traceability of every important result in prose.
+For long manuscripts, the recommended source hierarchy is:
+
+1. verified project facts/data;
+2. accepted project profile and decision ledger;
+3. directly read source papers;
+4. domain pack;
+5. venue/style rules;
+6. generic model knowledge.
+
+This prevents a new writing session from silently overriding decisions made earlier.
 
 ## Optional linter
 
-A dependency-free advisory linter still flags common style risks:
+The dependency-free linter remains useful for local style risks:
 
 ```bash
 python scripts/style_lint.py manuscript.tex --ieee
 ```
 
-You can also provide a terminology map:
+The linter is secondary. Literature synthesis, scientific structure, reproducibility, and evidence traceability require reasoning.
 
-```bash
-python scripts/style_lint.py manuscript.tex \
-  --ieee \
-  --terminology assets/terminology.example.json
-```
+## Installing
 
-The linter is intentionally secondary. Structural and scientific audits require reasoning and cannot be reduced to regex.
+Copy the complete `scientific-writing-style` folder into the skills directory recognized by the agent client.
 
-## Installing as an Agent Skill
-
-Copy the complete `scientific-writing-style` folder into the skills directory recognized by the agent client. The folder name should remain `scientific-writing-style` because it matches the `name` in `SKILL.md`.
-
-Clients differ in how they import personal skills. Keep the instruction body and repository structure; adapt only client-specific metadata/install location when required.
-
-## Recommended manuscript workflow
-
-For an existing paper:
-
-```text
-full manuscript audit
-        ↓
-fix blocking scientific/reproducibility issues
-        ↓
-repair section structure
-        ↓
-compare key sections with field papers
-        ↓
-revise prose
-        ↓
-venue/LaTeX/style check
-        ↓
-final reviewer read
-```
-
-For a single sentence or paragraph, use wording mode and do not force the full workflow.
-
-## Sources and copyright
-
-This repository contains original guidance synthesized from publicly available writing resources and manuscript practice.
-
-It does **not** copy or bundle a proprietary phrase bank, journal manual, or published-paper prose. Domain-paper patterning extracts rhetorical functions and terminology, not sentences.
-
-See `references/source-notes.md`.
+Clients differ in how they import personal skills. Keep the repository structure and instruction body; adapt only client-specific metadata/install location when required.
 
 ## Status
 
-`0.2.0` — manuscript-audit release.
+`0.3.0` — read-to-write workflow.
 
-Major additions:
-- full manuscript audit;
-- contribution–evidence matrix;
-- section role and size budgets;
-- reproducibility audit;
+Major additions since v0.1:
+
+- literature knowledge accumulation;
+- field lexicon / accepted-expression tracking;
+- equation/model registry;
+- claim/evidence ledger;
+- domain packs;
+- project source-of-truth profiles;
+- blueprint-first from-scratch drafting;
+- section roles and size diagnostics;
+- contribution–evidence matrices;
+- reproducibility and comparator audits;
 - result/evidence traceability;
-- domain-paper patterning;
-- stronger Results/Discussion distinction;
+- stronger Results vs Discussion distinction;
 - regression cases based on real manuscript-review failures.
 
 ## License
