@@ -193,5 +193,77 @@
       "Flags or fixes first-use acronym definition in the body",
       "Does not change scientific claims"
     ]
+  },
+  {
+    "id": "literature-paper-card",
+    "mode": "literature",
+    "prompt": "Read a supplied paper and prepare reusable knowledge for later manuscript writing.",
+    "expected_output": "Produce a source-grounded paper card, terminology additions, equation/model entries, claim/evidence entries, and rhetorical pattern notes without inventing unsupported content.",
+    "assertions": [
+      "Separates paper-derived content from inference",
+      "Captures terminology with context and meaning",
+      "Captures important equations with assumptions and role",
+      "Captures conclusions with evidence scope",
+      "Does not copy long passages as a phrase bank"
+    ]
+  },
+  {
+    "id": "single-paper-not-field-consensus",
+    "mode": "literature",
+    "prompt": "A single paper uses the term 'boundary response'. Add this to the field lexicon.",
+    "expected_output": "Record it as a source-specific term unless corroborated by additional papers; do not label it field-standard from one source.",
+    "assertions": [
+      "Preserves source count",
+      "Does not overgeneralize one paper's wording",
+      "Marks confidence or need for cross-paper verification"
+    ]
+  },
+  {
+    "id": "equation-registry-scope",
+    "mode": "literature",
+    "prompt": "A paper uses a semi-infinite diffusion equation only to define a reference scale. Later drafting asks to describe it as the heterogeneous forward model.",
+    "expected_output": "Use the equation registry to reject the stronger reinterpretation and preserve its source-defined role as a reference model.",
+    "assertions": [
+      "Tracks equation role",
+      "Tracks assumptions",
+      "Prevents role drift in later writing",
+      "Does not infer a stronger physical claim"
+    ]
+  },
+  {
+    "id": "from-scratch-project-lock",
+    "mode": "drafting",
+    "prompt": "Write an Introduction from scratch. The project profile fixes the gap as query-dependent use of boundary measurements and fixes three contributions in the order sampling, interpretation, supervision.",
+    "expected_output": "Draft from the frozen project profile and relevant paper cards; keep the gap, contribution order, and terminology stable unless an explicit conflict is found.",
+    "assertions": [
+      "Uses the project profile as source of truth",
+      "Does not invent a new gap",
+      "Preserves contribution order",
+      "Uses literature only for support and field framing"
+    ]
+  },
+  {
+    "id": "drafting-missing-source",
+    "mode": "drafting",
+    "prompt": "Write a Methods subsection from scratch, but the exact dose, acquisition interval, and reference-mask procedure are missing from the project profile and sources.",
+    "expected_output": "Draft only the supported structure and explicitly flag missing experimental facts rather than filling them from generic knowledge.",
+    "assertions": [
+      "Does not invent dose",
+      "Does not invent timing",
+      "Does not invent reference-mask construction",
+      "Separates missing facts from draftable material"
+    ]
+  },
+  {
+    "id": "cross-session-consistency",
+    "mode": "drafting",
+    "prompt": "A previous accepted project profile uses 'surface fluorescence measurements' and explicitly rejects 'projection data'. A new draft request asks for smoother wording.",
+    "expected_output": "Keep the canonical term rather than rotating to the rejected alternative for stylistic variety.",
+    "assertions": [
+      "Loads terminology lock",
+      "Preserves accepted wording",
+      "Does not use a rejected synonym",
+      "Records any proposed terminology change explicitly"
+    ]
   }
 ]
