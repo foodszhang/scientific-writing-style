@@ -518,6 +518,7 @@ Read as needed:
 
 - `references/living-writing-standards.md` — evidence-governed lifecycle for reusable writing rules.
 - `knowledge/templates/writing-standard-entry.md` — standard record for RAW/SUPPORTED/CONDITIONAL/DISPUTED/ADOPTED/RETIRED rules.
+- `knowledge/writing-standards/README.md` — active registry of accumulated reusable writing standards.
 - `references/literature-reading-and-knowledge.md` — paper reading and durable knowledge extraction.
 - `references/from-scratch-drafting.md` — stable blueprint-first drafting.
 - `references/manuscript-audit.md` — scientific/evidence/reproducibility audit.
