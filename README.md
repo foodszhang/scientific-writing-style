@@ -6,7 +6,17 @@ Version 0.4 expands the project into an evidence-governed workflow that starts a
 
 ## What it now does
 
-### 1. Literature reading
+### 1. Living writing standards
+Turns writing feedback into traceable, revisable rules rather than permanentizing preferences:
+
+- RAW / SUPPORTED / CONDITIONAL / DISPUTED / ADOPTED / RETIRED lifecycle;
+- original comment vs interpreted concern;
+- official-guidance checks;
+- recent-paper evidence and counterexamples;
+- scope, confidence, and last-verified tracking;
+- promotion of mature rules into core references.
+
+### 2. Literature reading
 Turns papers into reusable, source-traceable knowledge:
 
 - paper cards;
@@ -181,6 +191,15 @@ Clients differ in how they import personal skills. Keep the repository structure
 ## Status
 
 `0.4.0` — evidence-governed read-to-write workflow.
+
+Major additions in v0.4:
+
+- Living Writing Standards governance layer;
+- RAW / SUPPORTED / CONDITIONAL / DISPUTED / ADOPTED / RETIRED rule lifecycle;
+- standardized writing-rule evidence template;
+- explicit separation of reusable writing standards from manuscript-specific decisions;
+- proportional verification intensity and counterexample search;
+- promotion path from validated living standards into stable core references.
 
 Major additions since v0.1:
 
