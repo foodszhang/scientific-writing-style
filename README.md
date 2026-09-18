@@ -87,6 +87,9 @@ scientific-writing-style/
 │   └── source-notes.md
 ├── knowledge/
 │   ├── README.md
+│   ├── writing-standards/
+│   │   ├── README.md
+│   │   └── W-XXX-*.md
 │   └── templates/
 │       ├── writing-standard-entry.md
 │       ├── paper-card.md
@@ -160,6 +163,8 @@ The resulting knowledge is stored as structured notes, not copied prose.
 Teacher/reviewer/collaborator feedback is treated as a hypothesis about writing quality, not automatically as a field-wide rule. Reusable rules are tracked in `references/living-writing-standards.md` with status, scope, evidence, counterexamples, confidence, and verification date.
 
 Low-risk wording issues can be handled directly. Consequential or disputed issues should be checked against formal guidance and comparable papers before promotion into stable core guidance.
+
+Accumulated standards live in `knowledge/writing-standards/`, with an index that records status, scope, and confidence.
 
 ## Persistent project consistency
 
