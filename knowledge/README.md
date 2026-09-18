@@ -65,6 +65,15 @@ Contains:
 
 Do not publish a project profile in a public repository if it contains unpublished or sensitive work.
 
+## Writing standards registry
+
+Reusable standards are stored in `writing-standards/`.
+
+- `writing-standards/README.md` — registry index
+- `writing-standards/W-XXX-*.md` — individual evidence-governed rules
+
+Do not place manuscript-specific decisions in this registry; keep those in the project profile / decision ledger.
+
 ## Recommended durable workflow
 
 ```text
