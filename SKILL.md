@@ -28,7 +28,8 @@ The central rules are:
 
 ## Use When
 
-- Recording and validating teacher, reviewer, collaborator, or model feedback before turning it into a reusable writing rule.\n- Reading, studying, summarizing, or comparing scientific papers for future writing.
+- Recording and validating teacher, reviewer, collaborator, or model feedback before turning it into a reusable writing rule.
+- Reading, studying, summarizing, or comparing scientific papers for future writing.
 - Building a persistent field lexicon, equation/model registry, claim/evidence ledger, or paper-card library.
 - Planning a manuscript from the beginning.
 - Drafting an Abstract, Introduction, Methods, Experimental Setup, Results, Discussion, or Conclusion from scratch.
@@ -500,7 +501,8 @@ Return:
 
 ## Edge Cases
 
-- **User requests wording only:** stay in wording mode.\n- **Teacher/reviewer says a phrase is wrong:** record the concern first; do not universalize it without checking scope and evidence when the rule is consequential or disputed.
+- **User requests wording only:** stay in wording mode.
+- **Teacher/reviewer says a phrase is wrong:** record the concern first; do not universalize it without checking scope and evidence when the rule is consequential or disputed.
 - **User asks to read only one supplied paper:** do not generalize one paper's terminology into a field-wide convention without qualification.
 - **Reference paper unavailable:** do not invent its wording, equation, protocol, or conclusion.
 - **Ambiguous claim strength:** choose the weaker defensible wording.
@@ -514,7 +516,9 @@ Return:
 
 Read as needed:
 
-- `references/living-writing-standards.md` — evidence-governed lifecycle for reusable writing rules.\n- `knowledge/templates/writing-standard-entry.md` — standard record for RAW/SUPPORTED/CONDITIONAL/DISPUTED/ADOPTED/RETIRED rules.\n- `references/literature-reading-and-knowledge.md` — paper reading and durable knowledge extraction.
+- `references/living-writing-standards.md` — evidence-governed lifecycle for reusable writing rules.
+- `knowledge/templates/writing-standard-entry.md` — standard record for RAW/SUPPORTED/CONDITIONAL/DISPUTED/ADOPTED/RETIRED rules.
+- `references/literature-reading-and-knowledge.md` — paper reading and durable knowledge extraction.
 - `references/from-scratch-drafting.md` — stable blueprint-first drafting.
 - `references/manuscript-audit.md` — scientific/evidence/reproducibility audit.
 - `references/section-role-and-budget.md` — section roles and diagnostic size ranges.
