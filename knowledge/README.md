@@ -68,6 +68,8 @@ Do not publish a project profile in a public repository if it contains unpublish
 ## Recommended durable workflow
 
 ```text
+writing feedback → Living Standard when needed
+   ↓
 read paper
    ↓
 paper card
