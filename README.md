@@ -2,7 +2,7 @@
 
 An open Agent Skill for **read-to-write scientific manuscript work**.
 
-Version 0.3 expands the project from a prose/style helper into a durable workflow that starts at literature reading, accumulates field knowledge, plans the manuscript, drafts from a frozen blueprint, audits the evidence chain, and only then performs wording/style revision.
+Version 0.4 expands the project into an evidence-governed workflow that starts at literature reading, accumulates field knowledge, plans the manuscript, drafts from a frozen blueprint, audits the evidence chain, and only then performs wording/style revision.
 
 ## What it now does
 
@@ -16,7 +16,7 @@ Turns papers into reusable, source-traceable knowledge:
 - section/rhetorical pattern notes;
 - cross-paper domain packs.
 
-### 2. Project planning
+### 3. Project planning
 Builds a stable source of truth for one manuscript:
 
 - problem;
@@ -31,10 +31,10 @@ Builds a stable source of truth for one manuscript:
 - section size plan;
 - section blueprints.
 
-### 3. From-scratch drafting
+### 4. From-scratch drafting
 Writes from the project profile + domain pack + paper cards rather than inventing a new framing each turn.
 
-### 4. Manuscript audit
+### 5. Manuscript audit
 Checks:
 
 - problem → gap → contribution → method → experiment → result → discussion → conclusion;
@@ -47,7 +47,7 @@ Checks:
 - Discussion depth;
 - claim strength.
 
-### 5. Wording/style
+### 6. Wording/style
 Retains the original strengths:
 
 - precise word choice;
@@ -63,7 +63,7 @@ Retains the original strengths:
 scientific-writing-style/
 ├── SKILL.md
 ├── references/
-│   ├── literature-reading-and-knowledge.md
+│   ├── living-writing-standards.md\n│   ├── literature-reading-and-knowledge.md
 │   ├── from-scratch-drafting.md
 │   ├── manuscript-audit.md
 │   ├── section-role-and-budget.md
@@ -77,7 +77,7 @@ scientific-writing-style/
 ├── knowledge/
 │   ├── README.md
 │   └── templates/
-│       ├── paper-card.md
+│       ├── writing-standard-entry.md\n│       ├── paper-card.md
 │       ├── domain-lexicon.md
 │       ├── equation-registry.md
 │       ├── claim-ledger.md
@@ -143,6 +143,12 @@ Instead, it extracts from relevant papers:
 
 The resulting knowledge is stored as structured notes, not copied prose.
 
+## Evidence-governed writing rules
+
+Teacher/reviewer/collaborator feedback is treated as a hypothesis about writing quality, not automatically as a field-wide rule. Reusable rules are tracked in `references/living-writing-standards.md` with status, scope, evidence, counterexamples, confidence, and verification date.
+
+Low-risk wording issues can be handled directly. Consequential or disputed issues should be checked against formal guidance and comparable papers before promotion into stable core guidance.
+
 ## Persistent project consistency
 
 For long manuscripts, the recommended source hierarchy is:
@@ -174,7 +180,7 @@ Clients differ in how they import personal skills. Keep the repository structure
 
 ## Status
 
-`0.3.0` — read-to-write workflow.
+`0.4.0` — evidence-governed read-to-write workflow.
 
 Major additions since v0.1:
 
