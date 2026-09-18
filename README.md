@@ -1,35 +1,89 @@
 # scientific-writing-style
 
-A small, open Agent Skill for **scientific prose rather than scientific judgment**.
+An open Agent Skill for **read-to-write scientific manuscript work**.
 
-It focuses on the problems that generic LLM rewriting often handles poorly:
+Version 0.4 expands the project into an evidence-governed workflow that starts at literature reading, accumulates field knowledge, plans the manuscript, drafts from a frozen blueprint, audits the evidence chain, and only then performs wording/style revision.
+
+## What it now does
+
+### 1. Literature reading
+Turns papers into reusable, source-traceable knowledge:
+
+- paper cards;
+- field terminology and short accepted expressions;
+- equation/model registry;
+- claim/evidence ledger;
+- section/rhetorical pattern notes;
+- cross-paper domain packs.
+
+### 3. Project planning
+Builds a stable source of truth for one manuscript:
+
+- problem;
+- technical difficulty;
+- exact gap;
+- contribution hierarchy;
+- method/module names;
+- terminology lock;
+- verified results;
+- evidence boundaries;
+- reviewer/author decisions;
+- section size plan;
+- section blueprints.
+
+### 4. From-scratch drafting
+Writes from the project profile + domain pack + paper cards rather than inventing a new framing each turn.
+
+### 5. Manuscript audit
+Checks:
+
+- problem → gap → contribution → method → experiment → result → discussion → conclusion;
+- contribution–evidence alignment;
+- section role and size balance;
+- reproducibility;
+- comparator fairness;
+- metric/statistical definitions;
+- prose-number traceability;
+- Discussion depth;
+- claim strength.
+
+### 6. Wording/style
+Retains the original strengths:
 
 - precise word choice;
-- stable technical terminology;
-- contribution and evidence verbs;
+- stable terminology;
+- contribution/evidence verbs;
+- sentence and paragraph flow;
 - claim-strength preservation;
-- sentence information flow;
-- paragraph architecture;
-- section-level rhetorical frameworks;
-- anti-inflation / anti-template writing;
-- an optional IEEE house-style overlay.
+- optional IEEE overlay.
 
-The goal is not to make prose sound more sophisticated. The goal is to make it **clearer, more conventional, more precise, and less likely to change the science while editing the English**.
-
-## What is included
+## Knowledge architecture
 
 ```text
 scientific-writing-style/
 ├── SKILL.md
-├── README.md
-├── LICENSE
 ├── references/
+│   ├── living-writing-standards.md\n│   ├── literature-reading-and-knowledge.md
+│   ├── from-scratch-drafting.md
+│   ├── manuscript-audit.md
+│   ├── section-role-and-budget.md
+│   ├── domain-paper-patterning.md
 │   ├── rhetorical-frameworks.md
 │   ├── word-choice.md
 │   ├── sentence-paragraph.md
 │   ├── anti-patterns.md
 │   ├── ieee-overlay.md
 │   └── source-notes.md
+├── knowledge/
+│   ├── README.md
+│   └── templates/
+│       ├── writing-standard-entry.md\n│       ├── paper-card.md
+│       ├── domain-lexicon.md
+│       ├── equation-registry.md
+│       ├── claim-ledger.md
+│       ├── domain-pack.md
+│       ├── project-profile.md
+│       └── section-blueprint.md
 ├── scripts/
 │   └── style_lint.py
 ├── assets/
@@ -38,83 +92,111 @@ scientific-writing-style/
     └── evals.json
 ```
 
-`SKILL.md` follows the open Agent Skills convention: a skill is a directory with YAML-frontmatter metadata and Markdown instructions. The detailed references are loaded only when needed.
+## Recommended long-project workflow
 
-## Core behavior
+```text
+read papers
+   ↓
+paper cards
+   ↓
+domain terminology / equations / conclusions
+   ↓
+cross-paper domain pack
+   ↓
+project profile
+   ↓
+section role + size plan
+   ↓
+section blueprint
+   ↓
+draft from scratch
+   ↓
+evidence/reproducibility audit
+   ↓
+wording + venue pass
+   ↓
+decision ledger update
+```
 
-The skill tells an agent to:
+This order is meant to reduce oscillation between drafts. Once a project profile is accepted, the skill should not silently rename the problem, change the contribution order, switch terminology, or strengthen claims in a later session.
 
-1. identify the communicative job of the text;
-2. freeze technical invariants;
-3. use conventional scientific wording rather than decorative synonyms;
-4. preserve claim strength;
-5. apply section-aware rhetorical structure;
-6. make the smallest revision that solves the writing problem.
+## Section-size diagnostics
 
-A central rule is:
+`references/section-role-and-budget.md` includes both relative manuscript proportions and a TMI-like 9–10 page planning profile.
 
-> Never replace a precise technical term merely to avoid lexical repetition.
+The ranges are **diagnostic, not prescriptive**. The skill asks whether a section performs its real scientific job, not merely whether it is the right length.
 
-Another is:
+## Domain-paper patterning
 
-> Do not rewrite an acceptable sentence merely to make it different.
+The skill does not build a copied phrase bank.
+
+Instead, it extracts from relevant papers:
+
+- section order;
+- paragraph functions;
+- technical terminology;
+- equation placement;
+- evidence presentation;
+- Discussion structure;
+- limitations;
+- safe claim scope.
+
+The resulting knowledge is stored as structured notes, not copied prose.
+
+## Evidence-governed writing rules
+
+Teacher/reviewer/collaborator feedback is treated as a hypothesis about writing quality, not automatically as a field-wide rule. Reusable rules are tracked in `references/living-writing-standards.md` with status, scope, evidence, counterexamples, confidence, and verification date.
+
+Low-risk wording issues can be handled directly. Consequential or disputed issues should be checked against formal guidance and comparable papers before promotion into stable core guidance.
+
+## Persistent project consistency
+
+For long manuscripts, the recommended source hierarchy is:
+
+1. verified project facts/data;
+2. accepted project profile and decision ledger;
+3. directly read source papers;
+4. domain pack;
+5. venue/style rules;
+6. generic model knowledge.
+
+This prevents a new writing session from silently overriding decisions made earlier.
 
 ## Optional linter
 
-A dependency-free advisory linter flags common risks:
+The dependency-free linter remains useful for local style risks:
 
 ```bash
 python scripts/style_lint.py manuscript.tex --ieee
 ```
 
-You can also provide a terminology map:
+The linter is secondary. Literature synthesis, scientific structure, reproducibility, and evidence traceability require reasoning.
 
-```bash
-python scripts/style_lint.py manuscript.tex \
-  --ieee \
-  --terminology assets/terminology.example.json
-```
+## Installing
 
-Warnings are deliberately advisory. Scientific context decides whether a phrase is actually wrong.
+Copy the complete `scientific-writing-style` folder into the skills directory recognized by the agent client.
 
-## Installing as an Agent Skill
-
-Agent clients use different skill directories. Copy the whole `scientific-writing-style` folder into the skills directory recognized by your client. The folder name must remain `scientific-writing-style` because it matches the `name` in `SKILL.md`.
-
-The format is intentionally simple enough to work with clients that support the open `SKILL.md` Agent Skills convention. If a client has additional metadata requirements, keep the instruction body and adapt only the frontmatter/install location.
-
-## Recommended use
-
-Use this skill **after or alongside scientific reasoning**, not instead of it.
-
-A productive manuscript workflow is:
-
-```text
-scientific reasoning / content decisions
-        ↓
-scientific-writing-style
-        ↓
-venue-specific formatting / LaTeX checks
-        ↓
-final reviewer read
-```
-
-For an existing manuscript, prefer minimal-diff editing. For a new section, use the rhetorical framework as a planning scaffold, then write natural prose rather than filling a phrase template.
-
-## Sources and copyright
-
-This repository contains original guidance synthesized from publicly available writing resources, especially:
-
-- University of Manchester Academic Phrasebank (function-first / rhetorical-move organization);
-- Microsoft Writing Style Guide (simple, precise, consistent wording);
-- Google Developer Documentation Style Guide and Technical Writing materials (information flow, sentence/paragraph clarity);
-- IEEE Editorial Style Manual for Authors (optional IEEE overlay).
-
-The repository **does not copy or bundle** the Manchester phrase inventory or the IEEE manual. External sources remain under their own terms. See `references/source-notes.md`.
+Clients differ in how they import personal skills. Keep the repository structure and instruction body; adapt only client-specific metadata/install location when required.
 
 ## Status
 
-`0.1.0` — usable first version. The next useful step is evaluation on real manuscript edits, especially false positives from the linter and cases where a generic prose rule conflicts with field convention.
+`0.4.0` — evidence-governed read-to-write workflow.
+
+Major additions since v0.1:
+
+- literature knowledge accumulation;
+- field lexicon / accepted-expression tracking;
+- equation/model registry;
+- claim/evidence ledger;
+- domain packs;
+- project source-of-truth profiles;
+- blueprint-first from-scratch drafting;
+- section roles and size diagnostics;
+- contribution–evidence matrices;
+- reproducibility and comparator audits;
+- result/evidence traceability;
+- stronger Results vs Discussion distinction;
+- regression cases based on real manuscript-review failures.
 
 ## License
 
