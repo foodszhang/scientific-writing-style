@@ -14,10 +14,10 @@ This skill is a **read-to-write scientific manuscript workflow**, not only a pro
 It supports five modes:
 
 1. **Literature mode** — read papers and convert them into reusable, source-traceable knowledge.
-2. **Project-planning mode** — freeze the manuscript story, contribution hierarchy, terminology, evidence boundaries, and section blueprints.
-3. **From-scratch drafting mode** — write a section from a stable blueprint rather than generating a new framing every turn.
-4. **Audit/revision mode** — review and repair a complete section or manuscript before polishing.
-5. **Wording mode** — perform local sentence/paragraph edits with minimal scientific change.
+3. **Project-planning mode** — freeze the manuscript story, contribution hierarchy, terminology, evidence boundaries, and section blueprints.
+4. **From-scratch drafting mode** — write a section from a stable blueprint rather than generating a new framing every turn.
+5. **Audit/revision mode** — review and repair a complete section or manuscript before polishing.
+6. **Wording mode** — perform local sentence/paragraph edits with minimal scientific change.
 
 The central rules are:
 
@@ -27,7 +27,7 @@ The central rules are:
 
 ## Use When
 
-- Reading, studying, summarizing, or comparing scientific papers for future writing.
+- Recording and validating teacher, reviewer, collaborator, or model feedback before turning it into a reusable writing rule.\n- Reading, studying, summarizing, or comparing scientific papers for future writing.
 - Building a persistent field lexicon, equation/model registry, claim/evidence ledger, or paper-card library.
 - Planning a manuscript from the beginning.
 - Drafting an Abstract, Introduction, Methods, Experimental Setup, Results, Discussion, or Conclusion from scratch.
@@ -459,7 +459,7 @@ Return:
 
 ## Edge Cases
 
-- **User requests wording only:** stay in wording mode.
+- **User requests wording only:** stay in wording mode.\n- **Teacher/reviewer says a phrase is wrong:** record the concern first; do not universalize it without checking scope and evidence when the rule is consequential or disputed.
 - **User asks to read only one supplied paper:** do not generalize one paper's terminology into a field-wide convention without qualification.
 - **Reference paper unavailable:** do not invent its wording, equation, protocol, or conclusion.
 - **Ambiguous claim strength:** choose the weaker defensible wording.
@@ -473,7 +473,7 @@ Return:
 
 Read as needed:
 
-- `references/literature-reading-and-knowledge.md` — paper reading and durable knowledge extraction.
+- `references/living-writing-standards.md` — evidence-governed lifecycle for reusable writing rules.\n- `knowledge/templates/writing-standard-entry.md` — standard record for RAW/SUPPORTED/CONDITIONAL/DISPUTED/ADOPTED/RETIRED rules.\n- `references/literature-reading-and-knowledge.md` — paper reading and durable knowledge extraction.
 - `references/from-scratch-drafting.md` — stable blueprint-first drafting.
 - `references/manuscript-audit.md` — scientific/evidence/reproducibility audit.
 - `references/section-role-and-budget.md` — section roles and diagnostic size ranges.
