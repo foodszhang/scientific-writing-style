@@ -1,6 +1,7 @@
 [
   {
     "id": "minimal-revision",
+    "mode": "wording",
     "prompt": "Polish this Methods sentence: 'The measurements were acquired from seven views and then normalized per case.'",
     "expected_output": "Preserve the technically acceptable passive construction and make no gratuitous rewrite.",
     "assertions": [
@@ -11,6 +12,7 @@
   },
   {
     "id": "contribution-verb",
+    "mode": "wording",
     "prompt": "Improve: 'We introduce a network and validate it by reporting Dice on one test set.'",
     "expected_output": "Use verbs that match the actual acts; likely develop/propose plus evaluate rather than validate unless a validity criterion exists.",
     "assertions": [
@@ -21,6 +23,7 @@
   },
   {
     "id": "claim-strength",
+    "mode": "wording",
     "prompt": "Polish: 'The ablation suggests that the constraint helps performance.'",
     "expected_output": "Do not upgrade suggests to demonstrates or establishes without stronger evidence.",
     "assertions": [
@@ -30,6 +33,7 @@
   },
   {
     "id": "terminology-stability",
+    "mode": "wording",
     "prompt": "Revise a paragraph that alternates framework, architecture, scheme, and method for the same algorithm.",
     "expected_output": "Choose one canonical term and keep it stable unless the terms denote genuinely different levels.",
     "assertions": [
@@ -39,6 +43,7 @@
   },
   {
     "id": "results-specificity",
+    "mode": "section",
     "prompt": "Improve: 'Our method achieves significantly superior and robust performance.' The only evidence is Dice 0.72 vs 0.69 on one test set.",
     "expected_output": "Replace promotional language with the measured comparison and avoid robustness/significance claims not supported by the evidence.",
     "assertions": [
@@ -49,18 +54,127 @@
   },
   {
     "id": "abstract-framework",
+    "mode": "section",
     "prompt": "Draft a 180-word engineering abstract from supplied problem, method, and quantitative results.",
     "expected_output": "Use a compact problem-gap-response-method-results-meaning structure, prioritizing quantitative results over generic praise.",
     "assertions": [
       "Contains the concrete problem",
       "States what the study does",
+      "Pairs major modules with their functions",
       "Includes key quantitative results",
-      "Avoids generic field-growth opening",
       "Avoids unsupported novelty labels"
     ]
   },
   {
+    "id": "method-overview-before-equations",
+    "mode": "section",
+    "prompt": "A Methods section begins immediately with y = Ax + e and then defines symbols. The manuscript contains a multi-stage query-conditioned reconstruction pipeline.",
+    "expected_output": "Flag the missing task/data-flow overview before polishing equations; recommend first stating input, output, query role, and pipeline, then introduce the conventional forward relation.",
+    "assertions": [
+      "Does not merely improve the equation prose",
+      "Identifies the section-role failure",
+      "Requires task/input/output/data flow before dense notation",
+      "Preserves the equation once its role is clear"
+    ]
+  },
+  {
+    "id": "in-vivo-reproducibility",
+    "mode": "manuscript",
+    "prompt": "The in vivo section says only: 'Five mice were imaged after ICG administration. Evaluation masks were constructed from CT anatomy and dissection.'",
+    "expected_output": "Flag reproducibility gaps and distinguish reference masks from direct physical ground truth.",
+    "assertions": [
+      "Requests or flags animal/model preparation details",
+      "Requests or flags administration route/timing and acquisition settings",
+      "Requests or flags how manual delineation was performed",
+      "Does not call anatomically inferred masks direct fluorescence ground truth"
+    ]
+  },
+  {
+    "id": "baseline-fairness",
+    "mode": "manuscript",
+    "prompt": "A paper lists five baselines with one grouped citation range and says 'methods originally developed for another modality were adapted' without naming them.",
+    "expected_output": "Require method-specific citations and method-specific adaptation details; clarify whether all methods receive the same data/splits/training protocol.",
+    "assertions": [
+      "Flags grouped citation ambiguity",
+      "Requires exact methods affected by adaptation",
+      "Checks train/validation/test and input parity",
+      "Checks whether animal-specific training applies to every relevant method"
+    ]
+  },
+  {
+    "id": "result-traceability",
+    "mode": "manuscript",
+    "prompt": "The Results section reports overall Dice 0.741 and later reports subgroup Dice values 0.799, 0.747, and 0.692. The subgroup values are not shown in any table/figure and subgroup sample sizes are omitted.",
+    "expected_output": "Flag the traceability/context problem before stylistic revision. Recommend adding explicit subgroup context/evidence or deleting the values.",
+    "assertions": [
+      "Does not assume the subgroup values are wrong",
+      "Explains why readers cannot relate subgroup and overall values",
+      "Requires evidence location or removal",
+      "Does not invent subgroup sample sizes"
+    ]
+  },
+  {
+    "id": "discussion-not-results-repeat",
+    "mode": "section",
+    "prompt": "The Discussion says: 'Module A improved Dice by 0.05. Module B improved Dice by 0.03. The in vivo results were also better. Several limitations remain.'",
+    "expected_output": "Flag that this is a Results summary, then restructure around interpretation, plausible mechanism, prior work, evidence boundaries, and limitations.",
+    "assertions": [
+      "Does not merely polish the sentences",
+      "Requires relation to prior work",
+      "Separates direct evidence from mechanism interpretation",
+      "States what the evidence does not establish"
+    ]
+  },
+  {
+    "id": "small-cohort-descriptive",
+    "mode": "manuscript",
+    "prompt": "Five animals are evaluated with mean±SD only, but the Results call the proposed method statistically superior and the Conclusion claims cross-animal generalization.",
+    "expected_output": "Downgrade the claims to descriptive feasibility unless inferential/generalization evidence is supplied.",
+    "assertions": [
+      "Does not invent statistical testing",
+      "Distinguishes descriptive ordering from inference",
+      "Rejects unsupported cross-animal generalization",
+      "Carries the evidence boundary into the Conclusion"
+    ]
+  },
+  {
+    "id": "contribution-evidence-chain",
+    "mode": "manuscript",
+    "prompt": "The Introduction claims three contributions. Only two have dedicated ablations; the third appears in Methods but is never analyzed in Results or Discussion.",
+    "expected_output": "Produce a contribution–evidence matrix and flag the third contribution as unsupported at the claimed level.",
+    "assertions": [
+      "Maps each contribution through Methods, Experiment, Results, Discussion, and Conclusion",
+      "Does not hide the missing direct evidence with better prose",
+      "Suggests either adding evidence or lowering/removing the contribution claim"
+    ]
+  },
+  {
+    "id": "section-size-balance",
+    "mode": "manuscript",
+    "prompt": "A 10-page engineering manuscript has a 5-page Methods section, 0.4-page Discussion, and 70-word Conclusion.",
+    "expected_output": "Use size ranges diagnostically: identify likely underdeveloped Discussion/Conclusion and check whether low-value Methods detail can move or compress without harming reproducibility.",
+    "assertions": [
+      "Does not enforce a rigid page quota",
+      "Reports the functional imbalance",
+      "Protects reproducibility information",
+      "Recommends moving/compressing before deleting"
+    ]
+  },
+  {
+    "id": "domain-paper-patterning",
+    "mode": "section",
+    "prompt": "Rewrite a Discussion to sound like published papers in the target field using three supplied papers.",
+    "expected_output": "Extract rhetorical structure, evidence style, and terminology from the supplied papers without copying their prose, then compare the manuscript against those functions.",
+    "assertions": [
+      "Uses the supplied papers as the basis",
+      "Does not fabricate unavailable paper details",
+      "Adapts structure rather than copying sentences",
+      "Distinguishes source-derived convention from editorial recommendation"
+    ]
+  },
+  {
     "id": "compression-preserves-scope",
+    "mode": "section",
     "prompt": "Shorten this Results paragraph by 25% without changing meaning.",
     "expected_output": "Remove redundancy and meta-writing before removing conditions, numbers, qualifiers, or limitations.",
     "assertions": [
@@ -71,6 +185,7 @@
   },
   {
     "id": "ieee-overlay",
+    "mode": "wording",
     "prompt": "Edit this paragraph for an IEEE Transactions manuscript; it uses British spelling and introduces an acronym only in the abstract.",
     "expected_output": "Apply American spelling and ensure acronym treatment follows the IEEE overlay without altering content.",
     "assertions": [
