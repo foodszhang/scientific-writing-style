@@ -73,7 +73,8 @@ Retains the original strengths:
 scientific-writing-style/
 ├── SKILL.md
 ├── references/
-│   ├── living-writing-standards.md\n│   ├── literature-reading-and-knowledge.md
+│   ├── living-writing-standards.md
+│   ├── literature-reading-and-knowledge.md
 │   ├── from-scratch-drafting.md
 │   ├── manuscript-audit.md
 │   ├── section-role-and-budget.md
@@ -87,7 +88,8 @@ scientific-writing-style/
 ├── knowledge/
 │   ├── README.md
 │   └── templates/
-│       ├── writing-standard-entry.md\n│       ├── paper-card.md
+│       ├── writing-standard-entry.md
+│       ├── paper-card.md
 │       ├── domain-lexicon.md
 │       ├── equation-registry.md
 │       ├── claim-ledger.md
