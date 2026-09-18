@@ -3,17 +3,18 @@ name: scientific-writing-style
 description: Read and distill scientific literature into reusable domain knowledge, audit and plan manuscripts, draft sections from scratch, and revise scientific prose with section-aware structure, evidence traceability, reproducibility checks, domain-paper patterning, precise terminology, restrained claim strength, and an optional IEEE overlay. Use for literature reading, paper cards, terminology/equation/claim accumulation, full-manuscript review, section planning, from-scratch drafting, abstracts, introductions, methods, experiments, results, discussions, conclusions, captions, reviewer responses, and wording-focused revision. Preserve verified equations, numbers, citations, method names, and scientific meaning unless the user explicitly asks to change them.
 license: MIT
 metadata:
-  version: "0.3.0"
-  scope: "read-to-write scientific manuscript workflow"
+  version: "0.4.0"
+  scope: "evidence-governed read-to-write scientific manuscript workflow"
 ---
 
 # Scientific Writing Style
 
 This skill is a **read-to-write scientific manuscript workflow**, not only a prose polisher.
 
-It supports five modes:
+It supports six modes:
 
-1. **Literature mode** — read papers and convert them into reusable, source-traceable knowledge.
+1. **Standards-governance mode** — record, verify, scope, adopt, revise, or retire reusable writing rules.
+2. **Literature mode** — read papers and convert them into reusable, source-traceable knowledge.
 3. **Project-planning mode** — freeze the manuscript story, contribution hierarchy, terminology, evidence boundaries, and section blueprints.
 4. **From-scratch drafting mode** — write a section from a stable blueprint rather than generating a new framing every turn.
 5. **Audit/revision mode** — review and repair a complete section or manuscript before polishing.
@@ -52,7 +53,32 @@ When sources disagree, use this precedence unless the user explicitly changes it
 
 Never silently replace a project fact with a field convention.
 
+## Writing-Rule Precedence
+
+Scientific correctness is non-negotiable. Within scientifically correct expression, use this order when writing rules conflict:
+
+1. current formal venue/publisher/reporting requirements;
+2. accepted manuscript-specific decisions in the project profile;
+3. ADOPTED Living Writing Standards within their stated scope;
+4. strong, relevant community convention;
+5. context-dependent editorial preference;
+6. individual preference.
+
+A teacher, reviewer, collaborator, or model comment is not automatically a universal rule. When the rule itself is in question, use `references/living-writing-standards.md`.
+
 ## Mode Selection
+
+### Standards-governance mode
+
+Use when a writing comment or preference may become reusable guidance.
+
+Read `references/living-writing-standards.md` and use `knowledge/templates/writing-standard-entry.md`.
+
+Record the original comment separately from the interpreted concern. Assign one lifecycle status:
+
+`RAW → SUPPORTED / CONDITIONAL / DISPUTED → ADOPTED → RETIRED`
+
+Use external verification proportionate to the risk. Do not search 5–10 papers for a trivial grammar issue; do inspect formal guidance and comparable papers for consequential, contestable, or venue-specific rules. Seek counterexamples before promoting a rule into the core references.
 
 ### Literature mode
 
@@ -341,6 +367,11 @@ Use `knowledge/templates/domain-pack.md`.
 
 A domain pack synthesizes multiple public papers and should not contain unpublished project facts.
 
+### Living Writing Standards
+Use `references/living-writing-standards.md` and `knowledge/templates/writing-standard-entry.md`.
+
+Use this layer for reusable writing-rule provenance, evidence, scope, confidence, status, and verification history. Do not store manuscript-specific wording decisions here when they belong in the project profile.
+
 ### Project profile
 Use `knowledge/templates/project-profile.md`.
 
@@ -429,6 +460,16 @@ In wording mode:
 In planning, drafting, or audit modes, structural correctness takes precedence over minimal-diff editing.
 
 ## Output Formats
+
+### Standards-governance mode
+Return, as appropriate:
+1. original comment;
+2. interpreted underlying concern;
+3. verification evidence and counterexamples;
+4. assessment;
+5. current operational rule;
+6. scope/confidence/last-verified date;
+7. status change and decision history.
 
 ### Literature mode
 Return, as appropriate:
