@@ -2,7 +2,7 @@
 
 This directory defines how long-term literature knowledge should be stored for reuse in later manuscript drafting.
 
-## Three layers
+## Four layers
 
 ### 1. Core skill
 
@@ -12,7 +12,28 @@ Lives in:
 - `SKILL.md`
 - `references/`
 
-### 2. Domain pack
+### 2. Living Writing Standards
+
+Evidence-governed, reusable writing rules.
+
+Lives in:
+- `references/living-writing-standards.md`
+- `templates/writing-standard-entry.md`
+
+Tracks:
+- original feedback;
+- interpreted concern;
+- formal guidance;
+- paper evidence and counterexamples;
+- status;
+- scope;
+- confidence;
+- last verified;
+- rule history.
+
+This layer governs whether a writing preference should become reusable guidance. It is not a manuscript-specific decision log.
+
+### 3. Domain pack
 
 Public-literature-derived knowledge for a field such as FMT, BLT, optical tomography, medical image reconstruction, etc.
 
@@ -28,7 +49,7 @@ A domain pack may contain:
 
 A domain pack should not contain unpublished project facts.
 
-### 3. Project profile
+### 4. Project profile
 
 Private/project-specific source of truth.
 
