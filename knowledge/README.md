@@ -87,6 +87,7 @@ audit against project profile and evidence
 
 ## Templates
 
+- `templates/writing-standard-entry.md`
 - `templates/paper-card.md`
 - `templates/equation-registry.md`
 - `templates/project-profile.md`
